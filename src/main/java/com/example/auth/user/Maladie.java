@@ -25,7 +25,7 @@ public class Maladie {
     private String name;
 
     @Column(nullable = false)
-    private String Details;
+    private String details;
 
     @ManyToMany
     private List<Symptome> symptomeList = new ArrayList<>();
