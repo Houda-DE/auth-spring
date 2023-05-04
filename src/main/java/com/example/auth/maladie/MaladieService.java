@@ -1,9 +1,7 @@
 package com.example.auth.maladie;
 
 import com.example.auth.medecin.AddDoctorResponse;
-import com.example.auth.user.Maladie;
-import com.example.auth.user.MaladieRepository;
-import com.example.auth.user.MedecinRepository;
+import com.example.auth.user.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +10,8 @@ import org.springframework.stereotype.Service;
 public class MaladieService {
 
     private final MaladieRepository repository;
+
+    private final SymptomeRepository symptomeRepository;
 
     public AddMaladieResponse addMaladie(AddMaladieRequest request){
 
@@ -28,6 +28,18 @@ public class MaladieService {
                 .details(request.getDetails())
                 .symptomeList(request.getSymptomeList())
                 .build();
+    }
+
+    public AddSymptomeResponse addSymptome(AddSymptomeRequest request){
+
+        var symptome = Symptome.builder()
+                .name(request.getName())
+                .build();
+        symptomeRepository.save(symptome);
+        return AddSymptomeResponse.builder()
+                .name(request.getName())
+                .build();
+
     }
 
 
