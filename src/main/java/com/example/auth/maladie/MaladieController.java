@@ -22,10 +22,4 @@ public class MaladieController {
         return ResponseEntity.ok(service.addMaladie(request));
     }
 
-    @PostMapping("/addsymp")
-    public ResponseEntity<AddSymptomeResponse> addSymptome(
-            @RequestBody AddSymptomeRequest request
-    ){
-        return ResponseEntity.ok(service.addSymptome(request));
-    }
 }

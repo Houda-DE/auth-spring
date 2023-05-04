@@ -18,7 +18,7 @@ public class MaladieService {
         var maladie = Maladie.builder()
                 .name(request.getName())
                 .details(request.getDetails())
-                .symptomeList(request.getSymptomeList())
+
                 .build();
 
         repository.save(maladie);
@@ -26,22 +26,10 @@ public class MaladieService {
         return AddMaladieResponse.builder()
                 .name(request.getName())
                 .details(request.getDetails())
-                .symptomeList(request.getSymptomeList())
+                .symptome(request.getSymptome())
                 .build();
     }
-
-    public AddSymptomeResponse addSymptome(AddSymptomeRequest request){
-
-        var symptome = Symptome.builder()
-                .name(request.getName())
-                .build();
-        symptomeRepository.save(symptome);
-        return AddSymptomeResponse.builder()
-                .name(request.getName())
-                .build();
-
-    }
-
+    
 
 
 }

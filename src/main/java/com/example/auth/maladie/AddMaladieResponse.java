@@ -1,6 +1,5 @@
 package com.example.auth.maladie;
 
-import com.example.auth.user.Symptome;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +17,6 @@ public class AddMaladieResponse {
 
     public String details;
 
-    public List<Symptome> symptomeList;
+    public List symptome;
 
 }

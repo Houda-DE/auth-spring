@@ -28,6 +28,9 @@ public class Maladie {
     private String details;
 
     @ManyToMany
-    private List<Symptome> symptomeList = new ArrayList<>();
+    @JoinTable( name = "maladie_symptome",
+            joinColumns = @JoinColumn( name = "idMaladie" ),
+            inverseJoinColumns = @JoinColumn( name = "idSymptome" ) )
+    private List<Symptome> symptomes = new ArrayList<>();
 
 }

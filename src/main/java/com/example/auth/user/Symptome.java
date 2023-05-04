@@ -18,14 +18,15 @@ import java.util.List;
 @Table(name = "symptome")
 public class Symptome {
 
-    @GeneratedValue
-    @Id
-    private Integer id;
 
+    @Id
     @Column(nullable = false)
     private String name;
 
     @ManyToMany
-    private List<Maladie> maladieList = new ArrayList<>();
+    @JoinTable( name = "maladie_symptome",
+            joinColumns = @JoinColumn( name = "idSymptome" ),
+            inverseJoinColumns = @JoinColumn( name = "idMaladie" ) )
+    private List<Maladie> maladies = new ArrayList<>();
 
 }
