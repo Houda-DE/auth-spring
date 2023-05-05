@@ -5,6 +5,10 @@ import com.example.auth.user.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalLong;
+
 @Service
 @RequiredArgsConstructor
 public class MaladieService {
@@ -18,7 +22,6 @@ public class MaladieService {
         var maladie = Maladie.builder()
                 .name(request.getName())
                 .details(request.getDetails())
-
                 .build();
 
         repository.save(maladie);
@@ -29,7 +32,14 @@ public class MaladieService {
                 .symptome(request.getSymptome())
                 .build();
     }
-    
 
+    public List<Maladie> allMaladies(){
+        return (List<Maladie>) repository.findAll();
+    }
+
+    public Maladie getMaladieById(Integer id) {
+        Optional<Maladie> optionalMaladie = repository.findById(id);
+        return optionalMaladie.get();
+    }
 
 }

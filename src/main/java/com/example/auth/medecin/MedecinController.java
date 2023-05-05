@@ -32,7 +32,7 @@ public class MedecinController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Medecin> getUserById(@PathVariable("id") Integer id){
+    public ResponseEntity<Medecin> getMedecinById(@PathVariable("id") Integer id){
         Medecin medecin = service.getMedecinById(id);
         return new ResponseEntity<>(medecin, HttpStatus.OK);
     }

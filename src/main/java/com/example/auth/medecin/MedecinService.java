@@ -41,8 +41,8 @@ public class MedecinService {
     }
 
     public Medecin getMedecinById(Integer id) {
-        Optional<Medecin> optionalUser = repository.findById(id);
-        return optionalUser.get();
+        Optional<Medecin> optionalMedecin = repository.findById(id);
+        return optionalMedecin.get();
     }
 
 }
