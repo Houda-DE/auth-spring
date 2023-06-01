@@ -45,4 +45,10 @@ public class MedecinService {
         return optionalMedecin.get();
     }
 
+    public List<Medecin> SearchMedecin(String keyword){
+        if (keyword != ""){
+            return repository.search(keyword);
+        }
+        return (List<Medecin>)repository.findAll();
+    }
 }

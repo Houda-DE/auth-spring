@@ -37,4 +37,10 @@ public class MedecinController {
         return new ResponseEntity<>(medecin, HttpStatus.OK);
     }
 
+    @GetMapping("/search/{keyword}")
+    public List<Medecin> searchMedecin(@PathVariable("keyword") String keyword){
+        return service.SearchMedecin(keyword);
+    }
+
+
 }
