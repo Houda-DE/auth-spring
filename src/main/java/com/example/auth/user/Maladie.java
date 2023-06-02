@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table
@@ -29,8 +31,8 @@ public class Maladie {
 
     @ManyToMany
     @JoinTable( name = "maladie_symptome",
-            joinColumns = @JoinColumn( name = "idMaladie" ),
-            inverseJoinColumns = @JoinColumn( name = "idSymptome" ) )
-    private List<Symptome> symptomes = new ArrayList<>();
+            joinColumns = @JoinColumn( name = "id_Maladie" ),
+            inverseJoinColumns = @JoinColumn( name = "id_Symptome" ) )
+    private Set<Symptome> symptomes = new HashSet<Symptome>();
 
 }

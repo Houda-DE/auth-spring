@@ -17,6 +17,6 @@ public class AddMaladieResponse {
 
     public String details;
 
-    public List symptome;
+
 
 }

@@ -8,7 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -20,13 +22,11 @@ public class Symptome {
 
 
     @Id
+    @GeneratedValue
+    private Integer id;
+
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany
-    @JoinTable( name = "maladie_symptome",
-            joinColumns = @JoinColumn( name = "idSymptome" ),
-            inverseJoinColumns = @JoinColumn( name = "idMaladie" ) )
-    private List<Maladie> maladies = new ArrayList<>();
 
 }

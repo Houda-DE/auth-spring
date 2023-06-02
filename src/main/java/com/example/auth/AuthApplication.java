@@ -12,8 +12,3 @@ public class AuthApplication {
 
 }
 
-
-
-
-
-

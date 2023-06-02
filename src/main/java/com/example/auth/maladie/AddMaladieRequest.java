@@ -5,7 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.*;
+
+import com.example.auth.user.*;
 
 @Data
 @Builder
@@ -17,7 +19,6 @@ public class AddMaladieRequest {
 
     public String details;
 
-    public List symptome;
-
+    public Set<Symptome> symptomes;
 
 }
