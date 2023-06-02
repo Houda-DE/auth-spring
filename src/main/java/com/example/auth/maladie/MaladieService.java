@@ -1,14 +1,11 @@
 package com.example.auth.maladie;
 
-import com.example.auth.medecin.AddDoctorResponse;
 import com.example.auth.user.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalLong;
 
 @Service
 @RequiredArgsConstructor
@@ -18,21 +15,29 @@ public class MaladieService {
 
     private final SymptomeRepository symptomeRepository;
 
-    public AddMaladieResponse addMaladie(AddMaladieRequest request){
+    public Maladie addMaladie(AddMaladieRequest request){
         var maladie = Maladie.builder()
                 .name(request.getName())
                 .details(request.getDetails())
                 .symptomes(request.getSymptomes())
                 .build();
 
+        for (Symptome symptome : request.getSymptomes()) {
+            if (!symptomeRepository.findById(symptome.getName()).isPresent()){
+                symptomeRepository.save(symptome);
+            }
+        }
 
         repository.save(maladie);
 
+        return maladie;
+    }
 
-        return AddMaladieResponse.builder()
-                .name(request.getName())
-                .details(request.getDetails())
-                .build();
+    public List<Maladie> findMaladie(String keyword){
+        if (keyword != ""){
+            return repository.search(keyword);
+        }
+        return (List<Maladie>)repository.findAll();
     }
 
     public List<Maladie> allMaladies(){
@@ -61,7 +66,7 @@ public class MaladieService {
         return (List<Symptome>) symptomeRepository.findAll();
     }
 
-    public Symptome getSymptomeById(Integer id){
+    public Symptome getSymptomeById(String id){
         Optional<Symptome> optionalSymptome = symptomeRepository.findById(id);
         return optionalSymptome.get();
     }

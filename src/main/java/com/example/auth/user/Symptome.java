@@ -22,9 +22,6 @@ public class Symptome {
 
 
     @Id
-    @GeneratedValue
-    private Integer id;
-
     @Column(nullable = false)
     private String name;
 

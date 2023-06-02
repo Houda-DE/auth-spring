@@ -20,7 +20,7 @@ public class MedecinController {
     private final UserRepository repository;
 
     @PostMapping("/add")
-    public ResponseEntity<AddDoctorResponse> addDoctor(
+    public ResponseEntity<Medecin> addDoctor(
             @RequestBody AddDoctorRequest request
     ) {
         return ResponseEntity.ok(service.addDocotor(request));

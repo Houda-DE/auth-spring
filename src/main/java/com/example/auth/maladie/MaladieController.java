@@ -18,7 +18,7 @@ public class MaladieController {
     public final MaladieService service;
 
     @PostMapping("/add")
-    public ResponseEntity<AddMaladieResponse> addMaladie(
+    public ResponseEntity<Maladie> addMaladie(
             @RequestBody AddMaladieRequest request
 
     ){
@@ -47,7 +47,7 @@ public class MaladieController {
 
     @GetMapping("symp/{id}")
     public ResponseEntity<Symptome> getSymptome (
-            @PathVariable("id") Integer id
+            @PathVariable("id") String id
     ){
         Symptome symptome = service.getSymptomeById(id);
         return new ResponseEntity<>(symptome , HttpStatus.OK);
@@ -56,6 +56,11 @@ public class MaladieController {
     @GetMapping("/getallSym")
     public ResponseEntity<List> getAllSym(){
         return ResponseEntity.ok(service.getAllSymptomes());
+    }
+
+    @GetMapping("/search/{keyword}")
+    public List<Maladie> searchMedecin(@PathVariable("keyword") String keyword){
+        return service.findMaladie(keyword);
     }
 
 }

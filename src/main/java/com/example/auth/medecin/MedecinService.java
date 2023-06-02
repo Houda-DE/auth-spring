@@ -18,7 +18,7 @@ public class MedecinService {
 
     private final String FOLDER_PATH="C:/Users/hdebz/OneDrive/Bureau/images";
 
-    public AddDoctorResponse addDocotor(AddDoctorRequest request){
+    public Medecin addDocotor(AddDoctorRequest request){
         var medecin = Medecin.builder()
                 .name(request.getName())
                 .adressse(request.getAdresse())
@@ -28,10 +28,7 @@ public class MedecinService {
                         .build();
         repository.save(medecin);
 
-        return AddDoctorResponse.builder()
-                .name(request.getName())
-                .image(request.getImage())
-                .build();
+        return medecin;
     }
 
     public List<Medecin> getAllMedecin()
