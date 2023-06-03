@@ -15,11 +15,14 @@ public class MaladieService {
 
     private final SymptomeRepository symptomeRepository;
 
+    private final String FOLDER_PATH="C:/Users/hdebz/OneDrive/Bureau/images";
+
     public Maladie addMaladie(AddMaladieRequest request){
         var maladie = Maladie.builder()
                 .name(request.getName())
                 .details(request.getDetails())
                 .symptomes(request.getSymptomes())
+                .drImage(FOLDER_PATH+request.getImage())
                 .build();
 
         for (Symptome symptome : request.getSymptomes()) {

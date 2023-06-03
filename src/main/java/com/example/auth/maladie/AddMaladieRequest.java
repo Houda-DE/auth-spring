@@ -21,4 +21,6 @@ public class AddMaladieRequest {
 
     public Set<Symptome> symptomes;
 
+    private String image;
+
 }

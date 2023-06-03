@@ -29,6 +29,10 @@ public class Maladie {
     @Column(nullable = false)
     private String details;
 
+    @Lob
+    @Column(name = "drImage" , nullable = false)
+    private String drImage;
+
     @ManyToMany
     @JoinTable( name = "maladie_symptome",
             joinColumns = @JoinColumn( name = "id_Maladie" ),
