@@ -16,7 +16,7 @@ public class MedecinService {
 
     private final MedecinRepository repository;
 
-    private final String FOLDER_PATH="C:/Users/hdebz/OneDrive/Bureau/images";
+    private final String FOLDER_PATH="C:/Users/dell/Desktop/Acsi/tp2/src/Assets";
 
     public Medecin addDocotor(AddDoctorRequest request){
         var medecin = Medecin.builder()
